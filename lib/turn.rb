@@ -10,6 +10,12 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+def valid_move?(index)
+   index.to_i.between?(0,8) && !position_taken?(index.to_i)
+   index = index.to_i - 1
+   index.between?(0,8) && !position_taken?(index.to_i)
+ end
+
 def valid_move?(board, index)
   if index.between?(0,8)
     if !position_taken?(board, index)
